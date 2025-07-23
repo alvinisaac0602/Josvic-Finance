@@ -36,7 +36,7 @@ const Signup = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold text-center text-blue-700 mb-6">
-          Create Your Account
+          Sign Up
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name */}

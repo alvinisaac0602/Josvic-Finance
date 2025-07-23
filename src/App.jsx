@@ -10,6 +10,7 @@ import Loans from "./pages/Loans";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import TermsAndConditions from "./pages/TermsAndConditions";
+import Student from "./pages/Student";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/privacy" element={<div>Privacy Policy</div>} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/student" element={<Student />} />
       </Routes>
       <Footer />
     </BrowserRouter>
