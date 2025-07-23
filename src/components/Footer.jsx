@@ -12,9 +12,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Company Info */}
         <div>
-          <h3 className="text-2xl font-bold mb-3 text-blue-400">
-            Josvic Finance
-          </h3>
+          <h3 className="text-2xl font-bold mb-3 text-white">Josvic Finance</h3>
           <p className="text-sm text-gray-300 leading-relaxed">
             Josvic Finance is dedicated to empowering youth through forex
             trading, affordable loan services, and educational platforms.
@@ -24,9 +22,7 @@ const Footer = () => {
 
         {/* Useful Links */}
         <div className="text-center">
-          <h4 className="text-lg font-semibold text-blue-300 mb-3">
-            Quick Links
-          </h4>
+          <h4 className="text-lg font-semibold text-white mb-3">Quick Links</h4>
           <ul className="text-sm text-gray-300 space-y-2">
             <li>
               <a href="/about" className="hover:text-white transition">
@@ -58,9 +54,7 @@ const Footer = () => {
 
         {/* Social Media */}
         <div className="text-center md:text-right">
-          <h4 className="text-lg font-semibold text-blue-300 mb-3">
-            Follow Us
-          </h4>
+          <h4 className="text-lg font-semibold text-white mb-3">Follow Us</h4>
           <div className="flex justify-center md:justify-end gap-5 text-2xl text-gray-300">
             <a
               href="https://facebook.com/josvicfinance"

@@ -25,7 +25,6 @@ const Student = () => {
     alert(
       `Mentorship application submitted!\n\nPackage: ${form.package}\nStart Date: ${form.startDate}\nEmail: ${form.email}\nWhatsApp: ${form.whatsapp}`
     );
-    // Reset form (mock behavior)
     setForm({
       package: "",
       startDate: "",
@@ -37,13 +36,20 @@ const Student = () => {
   return (
     <div className="bg-white min-h-screen py-10 px-4 md:px-16 text-gray-800">
       <div className="max-w-2xl mx-auto bg-gray-50 p-6 rounded shadow">
-        <h1 className="text-3xl font-bold text-blue-700 mb-6 text-center">
+        <h1 className="text-3xl font-bold text-gray-800 mb-4 text-center">
           Student Mentorship Application
         </h1>
 
-        <p className="mb-6 text-gray-600 text-center">
-          Choose your mentorship package and join Josvic Finance to build your
-          financial future.
+        <p className="text-gray-600 mb-6 text-center">
+          Are you a young, driven individual seeking to understand and grow in
+          the world of forex trading and finance? At Josvic Finance, we believe
+          that knowledge is the greatest investment.
+        </p>
+        <p className="text-gray-600 mb-8 text-center">
+          Our mentorship programs are designed to equip you with practical
+          trading skills, discipline, and insight. Whether you're just beginning
+          or looking to sharpen your strategies, our 2-month and lifetime
+          packages are tailored to guide your journey to financial freedom.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -99,7 +105,7 @@ const Student = () => {
             <input
               type="text"
               name="whatsapp"
-              placeholder="+2567XXXXXXXX"
+              placeholder="+2607XXXXXXXX"
               value={form.whatsapp}
               onChange={handleChange}
               required

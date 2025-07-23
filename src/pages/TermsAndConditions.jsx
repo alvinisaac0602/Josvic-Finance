@@ -16,7 +16,7 @@ const TermsAndConditions = () => {
   return (
     <div className="bg-white text-gray-800 py-10 px-4 md:px-16">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-3xl font-bold text-blue-700 mb-6">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">
           Forex Trading Fund Management – Terms & Conditions
         </h1>
 
