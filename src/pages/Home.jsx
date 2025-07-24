@@ -71,7 +71,7 @@ const Home = () => {
           <div className="transform hover:scale-105 transition">
             <BarChart2 size={36} className="mx-auto mb-2" />
             <h3 className="text-3xl font-bold">3M+</h3>
-            <p className="text-gray-600">UGX Invested</p>
+            <p className="text-gray-600">USD Invested</p>
           </div>
           <div className="transform hover:scale-105 transition">
             <UserCheck size={36} className="mx-auto mb-2" />
@@ -90,19 +90,17 @@ const Home = () => {
           {[
             {
               icon: <BarChart2 size={28} className="text-gray-600" />,
-              title: "Funded Accounts",
+              title: "Prop Accounts",
               desc: "Trade with our capital and grow your profits with zero risk.",
               link: "/forex",
-              image:
-                "https://images.unsplash.com/photo-1581093448798-5fe0f93f7c71?auto=format&fit=crop&w=800&q=60",
+              image: "/Fundedaccount.png",
             },
             {
               icon: <BookOpen size={28} className="text-gray-600" />,
               title: "Forex Lessons",
               desc: "Weekly mentorship, video lessons, and practical challenges.",
               link: "/forex",
-              image:
-                "https://images.unsplash.com/photo-1611222087618-b61e61b1cc9f?auto=format&fit=crop&w=800&q=60",
+              image: "/Forexlessons.jpeg",
             },
             {
               icon: <Banknote size={28} className="text-gray-600" />,
@@ -151,7 +149,7 @@ const Home = () => {
         </p>
         <div className="grid md:grid-cols-2 gap-10">
           <img
-            src="https://images.unsplash.com/photo-1601234894782-a0e7e38b2730?auto=format&fit=crop&w=800&q=60"
+            src="/Studentportal.jpg"
             alt="Students"
             className="rounded-lg shadow-lg w-full h-72 object-cover"
           />
