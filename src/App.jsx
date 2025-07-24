@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Student from "./pages/Student";
+import PortfolioPage from "./pages/PortfolioPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/privacy" element={<div>Privacy Policy</div>} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/student" element={<Student />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
