@@ -1,150 +1,689 @@
 import React, { useState } from "react";
 
-const Loans = () => {
-  const [form, setForm] = useState({
-    name: "",
+const LoansPage = () => {
+  // Form state for Brokerage Funded Loan
+  const [brokerageForm, setBrokerageForm] = useState({
+    fullName: "",
     email: "",
-    amount: "",
-    purpose: "",
-    duration: "",
+    phone: "",
+    dob: "",
+    brokerName: "",
+    brokerAccountName: "",
+    brokerEmail: "",
+    brokerCRNumber: "",
+    brokerMTLogin: "",
+    tradingExperienceYears: "",
+    tradingInstruments: "",
+    tradingPlatforms: "",
+    annualIncome: "",
+    netWorth: "",
+    financialObligations: "",
+    loanAmount: "",
+    loanPurpose: "",
+    tradingStrategy: "",
+    riskTolerance: "",
+    riskManagement: "",
+    additionalInfo: "",
+    agreeTerms: false,
+    signature: "",
+    signatureDate: "",
   });
 
-  const handleChange = (e) => {
-    setForm((prev) => ({
+  // Form state for Pool Investment-Backed Loan
+  const [poolForm, setPoolForm] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    physicalAddress: "",
+    idNumber: "",
+    countryOfResidence: "",
+    investmentAmount: "",
+    poolAccountNumber: "",
+    investmentStrategy: "",
+    expectedROI: "",
+    loanAmount: "",
+    loanTerm: "",
+    agreeTerms: false,
+    signature: "",
+    signatureDate: "",
+  });
+
+  // Handle brokerage form change
+  const handleBrokerageChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setBrokerageForm((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  // Handle pool form change
+  const handlePoolChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setPoolForm((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  // Simple submit handlers (replace with your logic)
+  const handleBrokerageSubmit = (e) => {
     e.preventDefault();
-    alert("Loan application submitted! (Mock only)");
-    setForm({
-      name: "",
-      email: "",
-      amount: "",
-      purpose: "",
-      duration: "",
-    });
+    alert("Brokerage Funded Loan application submitted!");
+  };
+
+  const handlePoolSubmit = (e) => {
+    e.preventDefault();
+    alert("Pool Investment-Backed Loan application submitted!");
   };
 
   return (
-    <div className="bg-white text-gray-800 py-10 px-4 md:px-16">
-      <h1 className="text-3xl font-bold text-blue-700 text-center mb-6">
-        Loan Services
-      </h1>
-
-      {/* Description */}
-      <div className="max-w-3xl mx-auto mb-10 text-center text-gray-700">
-        <p className="text-lg mb-4">
-          At Josvic Finance, we provide affordable and accessible loan solutions
-          to support your financial needs — from business growth to personal
-          emergencies.
+    <div className="max-w-7xl mx-auto py-12 px-6 md:px-16 font-sans text-gray-800">
+      {/* Loans Overview Section */}
+      <section className="mb-12 max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold mb-6 text-gray-700 text-center">
+          Loan Programs at Josvic Finance
+        </h1>
+        <p className="mb-4 text-gray-700">
+          Josvic Finance offers two primary loan options designed to support
+          traders and investors in growing their forex trading capabilities:
         </p>
-        <ul className="list-disc list-inside text-left max-w-xl mx-auto">
-          <li>Business Startup Loans</li>
-          <li>Student Education Loans</li>
-          <li>Short-term Personal Loans</li>
-          <li>Flexible repayment plans from 1 to 12 months</li>
+        <ul className="list-disc list-inside mb-4 text-gray-700 space-y-2">
+          <li>
+            <strong>Brokerage Firms Funded Loans:</strong> These loans provide
+            trading capital with three package options:
+            <ul className="list-disc list-inside ml-6 mt-2 text-gray-600">
+              <li>$10,000 commitment – Application fee 5% ($500)</li>
+              <li>$25,000 commitment – Application fee 5% ($1,250)</li>
+              <li>$50,000 commitment – Application fee 5% ($2,500)</li>
+            </ul>
+            Applicants must provide personal and broker account details, trading
+            experience, financial information, and loan purpose. The loan
+            approval includes risk disclosures and requires agreement to terms
+            and conditions.
+          </li>
+          <li>
+            <strong>Forex Pool Account Investment-Backed Loans:</strong> These
+            loans are based on investments in Josvic Finance's pool accounts.
+            Applicants may request a loan amount up to three times their active
+            investment, which must have been maintained or earned profits for at
+            least 90 days. Loan repayment is structured through the profits
+            generated by the pool account.
+          </li>
         </ul>
-      </div>
+        <p className="text-gray-700">
+          <strong>Important Risk Disclosure:</strong> Forex trading involves
+          significant risk, including market volatility and leverage. Borrowers
+          agree to invest 20% of their loan from the broker back into Josvic's
+          pool account as collateral. Failure to repay loans may result in legal
+          actions or usage of investments to cover outstanding debts.
+        </p>
+      </section>
 
-      {/* Application Form */}
-      <div className="max-w-2xl mx-auto bg-gray-50 p-6 rounded shadow-md">
-        <h2 className="text-xl font-semibold mb-4 text-gray-700">
-          Loan Application Form
-        </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="name" className="block font-medium mb-1">
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-300 p-2 rounded"
-            />
-          </div>
+      {/* Loan Application Forms Section */}
+      <section className="grid md:grid-cols-2 gap-12">
+        {/* Brokerage Funded Loan Form */}
+        <form
+          className="bg-white p-6 rounded shadow max-w-full"
+          onSubmit={handleBrokerageSubmit}
+        >
+          <h2 className="text-2xl font-bold mb-4 text-gray-700">
+            Brokerage Firms Funded Loan Application
+          </h2>
 
-          <div>
-            <label htmlFor="email" className="block font-medium mb-1">
-              Email Address
+          {/* Section 1: Personal Details */}
+          <fieldset className="mb-4 border border-gray-300 rounded p-4">
+            <legend className="font-semibold text-lg mb-2">
+              Personal Details
+            </legend>
+            <label className="block mb-2">
+              Full Name:
+              <input
+                type="text"
+                name="fullName"
+                value={brokerageForm.fullName}
+                onChange={handleBrokerageChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
             </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-300 p-2 rounded"
-            />
-          </div>
 
-          <div>
-            <label htmlFor="amount" className="block font-medium mb-1">
-              Loan Amount (USD)
+            <label className="block mb-2">
+              Email Address:
+              <input
+                type="email"
+                name="email"
+                value={brokerageForm.email}
+                onChange={handleBrokerageChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
             </label>
-            <input
-              type="number"
-              id="amount"
-              name="amount"
-              value={form.amount}
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-300 p-2 rounded"
-            />
-          </div>
 
-          <div>
-            <label htmlFor="purpose" className="block font-medium mb-1">
-              Purpose of Loan
+            <label className="block mb-2">
+              Phone Number:
+              <input
+                type="tel"
+                name="phone"
+                value={brokerageForm.phone}
+                onChange={handleBrokerageChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
             </label>
-            <textarea
-              id="purpose"
-              name="purpose"
-              value={form.purpose}
-              onChange={handleChange}
-              rows="3"
-              required
-              className="w-full border border-gray-300 p-2 rounded"
-            ></textarea>
-          </div>
 
-          <div>
-            <label htmlFor="duration" className="block font-medium mb-1">
-              Repayment Duration
+            <label className="block mb-2">
+              Date of Birth:
+              <input
+                type="date"
+                name="dob"
+                value={brokerageForm.dob}
+                onChange={handleBrokerageChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
             </label>
-            <select
-              id="duration"
-              name="duration"
-              value={form.duration}
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-300 p-2 rounded"
-            >
-              <option value="">Select duration</option>
-              <option value="1 Month">1 Month</option>
-              <option value="3 Months">3 Months</option>
-              <option value="6 Months">6 Months</option>
-              <option value="12 Months">12 Months</option>
-            </select>
-          </div>
+          </fieldset>
+
+          {/* Broker Account Details */}
+          <fieldset className="mb-4 border border-gray-300 rounded p-4">
+            <legend className="font-semibold text-lg mb-2">
+              Broker Account Details
+            </legend>
+
+            <label className="block mb-2">
+              Broker Name (Deriv / Exness):
+              <input
+                type="text"
+                name="brokerName"
+                value={brokerageForm.brokerName}
+                onChange={handleBrokerageChange}
+                required
+                placeholder="e.g., Deriv"
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Account Holder Name:
+              <input
+                type="text"
+                name="brokerAccountName"
+                value={brokerageForm.brokerAccountName}
+                onChange={handleBrokerageChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Broker Email:
+              <input
+                type="email"
+                name="brokerEmail"
+                value={brokerageForm.brokerEmail}
+                onChange={handleBrokerageChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              CR Number:
+              <input
+                type="text"
+                name="brokerCRNumber"
+                value={brokerageForm.brokerCRNumber}
+                onChange={handleBrokerageChange}
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              MT4/MT5 Login:
+              <input
+                type="text"
+                name="brokerMTLogin"
+                value={brokerageForm.brokerMTLogin}
+                onChange={handleBrokerageChange}
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+          </fieldset>
+
+          {/* Trading Experience */}
+          <fieldset className="mb-4 border border-gray-300 rounded p-4">
+            <legend className="font-semibold text-lg mb-2">
+              Trading Experience
+            </legend>
+            <label className="block mb-2">
+              Years of Trading Experience:
+              <input
+                type="number"
+                name="tradingExperienceYears"
+                value={brokerageForm.tradingExperienceYears}
+                onChange={handleBrokerageChange}
+                min="0"
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Types of Trading Instruments:
+              <input
+                type="text"
+                name="tradingInstruments"
+                value={brokerageForm.tradingInstruments}
+                onChange={handleBrokerageChange}
+                placeholder="e.g., Forex, CFDs"
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Trading Platforms Used:
+              <input
+                type="text"
+                name="tradingPlatforms"
+                value={brokerageForm.tradingPlatforms}
+                onChange={handleBrokerageChange}
+                placeholder="e.g., MetaTrader4, MetaTrader5"
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+          </fieldset>
+
+          {/* Financial Information */}
+          <fieldset className="mb-4 border border-gray-300 rounded p-4">
+            <legend className="font-semibold text-lg mb-2">
+              Financial Information
+            </legend>
+            <label className="block mb-2">
+              Annual Income:
+              <input
+                type="number"
+                name="annualIncome"
+                value={brokerageForm.annualIncome}
+                onChange={handleBrokerageChange}
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Net Worth:
+              <input
+                type="number"
+                name="netWorth"
+                value={brokerageForm.netWorth}
+                onChange={handleBrokerageChange}
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Financial Obligations:
+              <input
+                type="text"
+                name="financialObligations"
+                value={brokerageForm.financialObligations}
+                onChange={handleBrokerageChange}
+                className="w-full mt-1 p-2 border rounded"
+                placeholder="e.g., Loans, mortgages"
+              />
+            </label>
+          </fieldset>
+
+          {/* Loan Details */}
+          <fieldset className="mb-4 border border-gray-300 rounded p-4">
+            <legend className="font-semibold text-lg mb-2">Loan Details</legend>
+            <label className="block mb-2">
+              Loan Amount Requested:
+              <input
+                type="number"
+                name="loanAmount"
+                value={brokerageForm.loanAmount}
+                onChange={handleBrokerageChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Purpose of Loan:
+              <textarea
+                name="loanPurpose"
+                value={brokerageForm.loanPurpose}
+                onChange={handleBrokerageChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+                rows={3}
+              />
+            </label>
+
+            <label className="block mb-2">
+              Trading Strategy:
+              <textarea
+                name="tradingStrategy"
+                value={brokerageForm.tradingStrategy}
+                onChange={handleBrokerageChange}
+                className="w-full mt-1 p-2 border rounded"
+                rows={3}
+              />
+            </label>
+          </fieldset>
+
+          {/* Risk Management */}
+          <fieldset className="mb-4 border border-gray-300 rounded p-4">
+            <legend className="font-semibold text-lg mb-2">
+              Risk Management
+            </legend>
+            <label className="block mb-2">
+              Risk Tolerance:
+              <textarea
+                name="riskTolerance"
+                value={brokerageForm.riskTolerance}
+                onChange={handleBrokerageChange}
+                className="w-full mt-1 p-2 border rounded"
+                rows={2}
+              />
+            </label>
+
+            <label className="block mb-2">
+              Risk Management Strategy:
+              <textarea
+                name="riskManagement"
+                value={brokerageForm.riskManagement}
+                onChange={handleBrokerageChange}
+                className="w-full mt-1 p-2 border rounded"
+                rows={2}
+              />
+            </label>
+          </fieldset>
+
+          {/* Additional Information */}
+          <fieldset className="mb-4 border border-gray-300 rounded p-4">
+            <legend className="font-semibold text-lg mb-2">
+              Additional Information
+            </legend>
+            <label className="block mb-2">
+              Any additional info about your trading experience or strategy:
+              <textarea
+                name="additionalInfo"
+                value={brokerageForm.additionalInfo}
+                onChange={handleBrokerageChange}
+                className="w-full mt-1 p-2 border rounded"
+                rows={3}
+              />
+            </label>
+          </fieldset>
+
+          {/* Terms and Signature */}
+          <fieldset className="mb-4 border border-gray-300 rounded p-4">
+            <legend className="font-semibold text-lg mb-2">
+              Terms & Signature
+            </legend>
+            <label className="flex items-center gap-2 mb-2">
+              <input
+                type="checkbox"
+                name="agreeTerms"
+                checked={brokerageForm.agreeTerms}
+                onChange={handleBrokerageChange}
+                required
+              />
+              I agree to the terms and conditions of the loan, including
+              interest rates and repayment terms.
+            </label>
+
+            <label className="block mb-2">
+              Signature:
+              <input
+                type="text"
+                name="signature"
+                value={brokerageForm.signature}
+                onChange={handleBrokerageChange}
+                placeholder="Type your full name"
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block">
+              Date:
+              <input
+                type="date"
+                name="signatureDate"
+                value={brokerageForm.signatureDate}
+                onChange={handleBrokerageChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+          </fieldset>
 
           <button
             type="submit"
-            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+            className="bg-gray-700 text-white px-5 py-2 rounded hover:bg-gray-800 transition w-full"
           >
-            Submit Application
+            Submit Brokerage Loan Application
           </button>
         </form>
-      </div>
+
+        {/* Pool Investment-Backed Loan Form */}
+        <form
+          className="bg-white p-6 rounded shadow max-w-full"
+          onSubmit={handlePoolSubmit}
+        >
+          <h2 className="text-2xl font-bold mb-4 text- gray-700">
+            Forex Pool Account Investment-Backed Loan Application
+          </h2>
+
+          {/* Section 1: Applicant Information */}
+          <fieldset className="mb-4 border border-gray-300 rounded p-4">
+            <legend className="font-semibold text-lg mb-2">
+              Applicant Information
+            </legend>
+            <label className="block mb-2">
+              Full Name:
+              <input
+                type="text"
+                name="fullName"
+                value={poolForm.fullName}
+                onChange={handlePoolChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Email:
+              <input
+                type="email"
+                name="email"
+                value={poolForm.email}
+                onChange={handlePoolChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Phone Number:
+              <input
+                type="tel"
+                name="phone"
+                value={poolForm.phone}
+                onChange={handlePoolChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Physical Address:
+              <input
+                type="text"
+                name="physicalAddress"
+                value={poolForm.physicalAddress}
+                onChange={handlePoolChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              ID/Passport Number:
+              <input
+                type="text"
+                name="idNumber"
+                value={poolForm.idNumber}
+                onChange={handlePoolChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Country of Residence:
+              <input
+                type="text"
+                name="countryOfResidence"
+                value={poolForm.countryOfResidence}
+                onChange={handlePoolChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+          </fieldset>
+
+          {/* Section 2: Investment Details */}
+          <fieldset className="mb-4 border border-gray-300 rounded p-4">
+            <legend className="font-semibold text-lg mb-2">
+              Investment Details
+            </legend>
+            <label className="block mb-2">
+              Investment Amount:
+              <input
+                type="number"
+                name="investmentAmount"
+                value={poolForm.investmentAmount}
+                onChange={handlePoolChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Pool Account Number:
+              <input
+                type="text"
+                name="poolAccountNumber"
+                value={poolForm.poolAccountNumber}
+                onChange={handlePoolChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Investment Strategy:
+              <textarea
+                name="investmentStrategy"
+                value={poolForm.investmentStrategy}
+                onChange={handlePoolChange}
+                className="w-full mt-1 p-2 border rounded"
+                rows={3}
+              />
+            </label>
+
+            <label className="block mb-2">
+              Expected Return on Investment (ROI):
+              <input
+                type="text"
+                name="expectedROI"
+                value={poolForm.expectedROI}
+                onChange={handlePoolChange}
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Loan Amount:
+              <input
+                type="number"
+                name="loanAmount"
+                value={poolForm.loanAmount}
+                onChange={handlePoolChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block mb-2">
+              Loan Term:
+              <input
+                type="text"
+                name="loanTerm"
+                value={poolForm.loanTerm}
+                onChange={handlePoolChange}
+                className="w-full mt-1 p-2 border rounded"
+                placeholder="e.g., 6 months"
+              />
+            </label>
+          </fieldset>
+
+          {/* Terms and Signature */}
+          <fieldset className="mb-4 border border-gray-300 rounded p-4">
+            <legend className="font-semibold text-lg mb-2">
+              Terms & Signature
+            </legend>
+            <label className="flex items-center gap-2 mb-2">
+              <input
+                type="checkbox"
+                name="agreeTerms"
+                checked={poolForm.agreeTerms}
+                onChange={handlePoolChange}
+                required
+              />
+              I agree to the terms and conditions of the loan agreement and pool
+              account agreement.
+            </label>
+
+            <label className="block mb-2">
+              Signature:
+              <input
+                type="text"
+                name="signature"
+                value={poolForm.signature}
+                onChange={handlePoolChange}
+                placeholder="Type your full name"
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+
+            <label className="block">
+              Date:
+              <input
+                type="date"
+                name="signatureDate"
+                value={poolForm.signatureDate}
+                onChange={handlePoolChange}
+                required
+                className="w-full mt-1 p-2 border rounded"
+              />
+            </label>
+          </fieldset>
+
+          <button
+            type="submit"
+            className="bg-green-700 text-white px-5 py-2 rounded hover:bg-green-800 transition w-full"
+          >
+            Submit Pool Investment Loan Application
+          </button>
+        </form>
+      </section>
     </div>
   );
 };
 
-export default Loans;
+export default LoansPage;
