@@ -12,7 +12,7 @@ import {
 
 const Home = () => {
   return (
-    <div className="font-sans text-gray-800">
+    <div className="font-sans text-gray-800 overflow-x-hidden">
       {/* Hero */}
       <section
         className="relative h-[95vh] bg-cover bg-center flex items-center justify-center transition-all duration-500 ease-in-out"
