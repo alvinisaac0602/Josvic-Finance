@@ -13,15 +13,21 @@ import {
 const Home = () => {
   return (
     <div className="font-sans text-gray-800 overflow-x-hidden">
-      {/* Hero */}
-      <section
-        className="relative h-[95vh] bg-cover bg-center flex items-center justify-center transition-all duration-500 ease-in-out"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d3?auto=format&fit=crop&w=1950&q=80')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      {/* Hero with Video Background */}
+      <section className="relative h-[95vh] flex items-center justify-center overflow-hidden">
+        {/* Sharp Video Background */}
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover brightness-100 contrast-105"
+          src="/Forexvid1.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        />
+        {/* Transparent Overlay without blur */}
+        <div className="absolute inset-0 bg-black/30" />
+        {/* Hero Content */}
         <div className="relative z-10 text-white text-center max-w-3xl px-6 animate-fade-in">
           <h1 className="text-5xl font-bold mb-4 drop-shadow">
             Josvic Finance
@@ -34,7 +40,7 @@ const Home = () => {
               <Users size={16} /> 5,000+ Youth Reached
             </span>
             <span className="flex items-center gap-1">
-              <BarChart2 size={16} /> 3M+ UGX Invested
+              <BarChart2 size={16} /> 3M+ USD Invested
             </span>
           </div>
           <p className="mb-6">

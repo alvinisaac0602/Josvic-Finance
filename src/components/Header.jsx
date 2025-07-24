@@ -4,7 +4,6 @@ import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
@@ -17,21 +16,23 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <Link to="/forex" className="hover:text-yellow-400 transition">
-            Forex
-          </Link>
-          <Link to="/loans" className="hover:text-yellow-400 transition">
-            Loans
-          </Link>
-          <Link to="/student" className="hover:text-yellow-400 transition">
-            Student Portal
-          </Link>
-          <Link to="/about" className="hover:text-yellow-400 transition">
-            About Us
-          </Link>
-        </nav>
+        {/* Center nav with white border */}
+        <div className="hidden md:flex justify-center items-center">
+          <div className="border-2 border-white rounded-full px-6 py-2 flex gap-6 text-sm font-medium">
+            <Link to="/forex" className="hover:text-yellow-400 transition">
+              Forex
+            </Link>
+            <Link to="/loans" className="hover:text-yellow-400 transition">
+              Loans
+            </Link>
+            <Link to="/student" className="hover:text-yellow-400 transition">
+              Student Portal
+            </Link>
+            <Link to="/about" className="hover:text-yellow-400 transition">
+              About Us
+            </Link>
+          </div>
+        </div>
 
         {/* Desktop Buttons */}
         <div className="hidden md:flex gap-4 text-sm">
@@ -49,7 +50,7 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Hamburger Menu Icon */}
+        {/* Mobile Hamburger */}
         <div className="md:hidden">
           <button onClick={toggleMenu}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
