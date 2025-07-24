@@ -47,7 +47,7 @@ const Home = () => {
             💡 Vision: A financially independent African youth
           </p>
           <Link to="/about">
-            <button className="bg-blue-600 px-6 py-2 rounded hover:bg-blue-700 transition transform hover:scale-105">
+            <button className="bg-gray-600 px-6 py-2 rounded hover:bg-gray-700 transition transform hover:scale-105">
               Learn More
             </button>
           </Link>
@@ -56,8 +56,8 @@ const Home = () => {
 
       {/* Our Impact */}
       <section className="bg-white py-16 px-6 md:px-16 text-center">
-        <h2 className="text-3xl font-bold text-blue-700 mb-8">🌍 Our Impact</h2>
-        <div className="grid md:grid-cols-4 gap-8 text-blue-700">
+        <h2 className="text-3xl font-bold text-gray-700 mb-8">🌍 Our Impact</h2>
+        <div className="grid md:grid-cols-4 gap-8 gray-blue-700">
           <div className="transform hover:scale-105 transition">
             <GraduationCap size={36} className="mx-auto mb-2" />
             <h3 className="text-3xl font-bold">5,000+</h3>
@@ -83,13 +83,13 @@ const Home = () => {
 
       {/* Forex Trading Section */}
       <section className="bg-gray-50 py-16 px-6 md:px-16 text-center">
-        <h2 className="text-3xl font-bold text-blue-700 mb-12">
+        <h2 className="text-3xl font-bold text-gray-700 mb-12">
           💹 Forex Opportunities
         </h2>
         <div className="grid md:grid-cols-3 gap-10">
           {[
             {
-              icon: <BarChart2 size={28} className="text-blue-600" />,
+              icon: <BarChart2 size={28} className="text-gray-600" />,
               title: "Funded Accounts",
               desc: "Trade with our capital and grow your profits with zero risk.",
               link: "/forex",
@@ -97,7 +97,7 @@ const Home = () => {
                 "https://images.unsplash.com/photo-1581093448798-5fe0f93f7c71?auto=format&fit=crop&w=800&q=60",
             },
             {
-              icon: <BookOpen size={28} className="text-blue-600" />,
+              icon: <BookOpen size={28} className="text-gray-600" />,
               title: "Forex Lessons",
               desc: "Weekly mentorship, video lessons, and practical challenges.",
               link: "/forex",
@@ -105,7 +105,7 @@ const Home = () => {
                 "https://images.unsplash.com/photo-1611222087618-b61e61b1cc9f?auto=format&fit=crop&w=800&q=60",
             },
             {
-              icon: <Banknote size={28} className="text-blue-600" />,
+              icon: <Banknote size={28} className="text-gray-600" />,
               title: "Loan Accounts",
               desc: "Access quick and flexible loans to support your trading journey.",
               link: "/loans",
@@ -124,13 +124,13 @@ const Home = () => {
               />
               <div className="p-6 text-left">
                 <div className="mb-3">{icon}</div>
-                <h3 className="text-xl font-semibold text-blue-700 mb-2">
+                <h3 className="text-xl font-semibold text-gray-700 mb-2">
                   {title}
                 </h3>
                 <p className="text-gray-700 mb-4">{desc}</p>
                 <Link
                   to={link}
-                  className="text-blue-600 hover:underline flex items-center gap-1"
+                  className="text-gray-600 hover:underline flex items-center gap-1"
                 >
                   Explore <ArrowRight size={16} />
                 </Link>
@@ -142,7 +142,7 @@ const Home = () => {
 
       {/* Student Portal */}
       <section className="py-16 px-6 md:px-16 bg-white text-center">
-        <h2 className="text-3xl font-bold text-blue-700 mb-6">
+        <h2 className="text-3xl font-bold text-gray-700 mb-6">
           🎓 Student Portal
         </h2>
         <p className="text-gray-700 max-w-2xl mx-auto mb-8">
@@ -156,7 +156,7 @@ const Home = () => {
             className="rounded-lg shadow-lg w-full h-72 object-cover"
           />
           <div className="text-left">
-            <h3 className="text-xl font-semibold text-blue-600 mb-2">
+            <h3 className="text-xl font-semibold text-gray-600 mb-2">
               How to Join
             </h3>
             <ul className="list-disc text-gray-700 pl-6 mb-4">
@@ -164,7 +164,7 @@ const Home = () => {
               <li>Submit identification for verification</li>
               <li>Start learning with access to materials</li>
             </ul>
-            <h3 className="text-xl font-semibold text-blue-600 mb-2">
+            <h3 className="text-xl font-semibold text-gray-600 mb-2">
               What You Get
             </h3>
             <ul className="list-disc text-gray-700 pl-6">
@@ -174,7 +174,7 @@ const Home = () => {
               <li>Certificates upon completion</li>
             </ul>
             <Link to="/student">
-              <button className="mt-6 bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition">
+              <button className="mt-6 bg-gray-600 text-white px-5 py-2 rounded hover:bg-gray-700 transition">
                 Join Now
               </button>
             </Link>
@@ -183,14 +183,14 @@ const Home = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-blue-700 text-white text-center py-16 px-6">
+      <section className="bg-gray-700 text-white text-center py-16 px-6">
         <h2 className="text-3xl font-bold mb-4">💼 Ready to Start?</h2>
         <p className="text-lg max-w-xl mx-auto mb-6">
           Whether you're a beginner or ready to scale, Josvic Finance gives you
           the tools to succeed.
         </p>
         <Link to="/signup">
-          <button className="bg-white text-blue-700 font-medium px-6 py-2 rounded hover:bg-gray-100 transition">
+          <button className="bg-white text-gray-700 font-medium px-6 py-2 rounded hover:bg-gray-100 transition">
             Get Started Today
           </button>
         </Link>
