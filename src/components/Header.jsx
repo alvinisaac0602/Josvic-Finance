@@ -40,7 +40,7 @@ const Header = () => {
           </Link>
           <Link
             to="/contact"
-            className="bg-blue-500 px-4 py-1 rounded hover:bg-blue-600 transition"
+            className="bg-blue-500 px-4 py-1 rounded hover:bg-blue-100 transition"
           >
             Contact
           </Link>
